@@ -1,0 +1,636 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    color: #2c3e50;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+}
+
+header {
+    background: linear-gradient(45deg, #19cfc0, #585858); /* Gradient background */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding for the header */
+    position: sticky; /* Sticky positioning */
+    top: 0; /* Stick to the top */
+    z-index: 500; /* Ensure it stays on top */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for some depth */
+    display: flex; /* Flexbox to align items */
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    position: relative;
+    overflow: hidden; /* Ensure nothing overflows */
+}
+
+header::before, header::after {
+    content: ""; /* Empty content as we're using background images */
+    display: block; /* Make sure it's treated as a block element */
+    width: 300px; /* Adjusted for better responsiveness */
+    height: 150px; /* Adjusted for better responsiveness */
+    background-size: cover; /* Ensure the GIF fills the container */
+    background-repeat: no-repeat; /* Do not repeat the background */
+    position: absolute; /* Position absolutely within the header */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Align to the vertical center */
+    border: 3px solid black; /* Add a black border around the GIF */
+    border-radius: 8px; /* Optional: rounded corners for the GIF */
+    animation: fadeIn 1.5s ease-in-out; /* Fade-in effect */
+}
+
+header::before {
+    background-image: url('https://jonmgomes.com/wp-content/uploads/2020/05/Comp_1.gif'); /* Path to your left GIF */
+    left: 10px; /* Proper position to the left */
+}
+
+header::after {
+    background-image: url('https://jonmgomes.com/wp-content/uploads/2020/05/Comp_1.gif'); /* Path to your right GIF */
+    right: 10px; /* Proper position to the right */
+}
+
+header h1 {
+    font-size: 2rem;
+    margin: 0;
+    animation: fadeIn 2s ease-in-out;
+    z-index: 10; /* Ensure it's above pseudo-elements */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header::before, header::after {
+        width: 200px;
+        height: 100px;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: rgb(73, 64, 64);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+#hero {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+/* Hero Section */
+#hero {
+    background: linear-gradient(to right, #3498db, #2980b9);
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    animation: slideIn 1.5s ease-in-out;
+}
+#hero {
+    background: url('https://media.istockphoto.com/id/451101719/vector/abstract-businessman-climbs-the-sales-chart.jpg?s=1024x1024&w=is&k=20&c=QIYNaoGqdh5KjANoQgUWsdSR3jRqPjeX4aL8iPbzUDk=') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    
+    padding: 80px 20px; /* Adjust padding as needed */
+    color: white; /* Adjust text color for contrast */
+}
+
+/* Overlay to fade the background image */
+#hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Darken the background */
+    z-index: -1; /* Position behind the content */
+}
+
+#hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+#hero button {
+    background: linear-gradient(45deg, #16a085, #1abc9c);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#hero button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Features Section */
+/* 3D Effect for Features Section */
+#features {
+    padding: 50px 20px;
+    background: #bdc3c7; /* Darker background color for the features section */
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+    border-radius: 12px; /* Rounded corners for the section */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Soft shadow to give a 3D effect */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition for hover */
+    margin: 20px auto;
+    max-width: 900px; /* Limit the width of the section */
+}
+
+/* Hover effect to create a "lift" effect for the Features section */
+#features:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Darker, larger shadow on hover */
+    transform: translateY(-8px); /* Lift effect */
+}
+
+/* Heading within Features Section */
+#features h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#features h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.feature {
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: scale(1.05);
+}
+
+.feature h3 {
+    font-size: 1.8rem;
+    color: #2980b9;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Technology Section */
+#tech {
+    padding: 50px 20px;
+    background: linear-gradient(120deg, #8e44ad, #9b59b6);
+    color: white;
+    text-align: center;
+    animation: fadeInUp 2s ease-in-out;
+}
+
+#tech h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#tech ul {
+    list-style: none;
+    padding: 0;
+}
+
+#tech ul li {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+/* Tools Section */
+#tools {
+    padding: 50px 20px;
+    background: #f8f9fa;
+    text-align: center;
+    animation: fadeInDown 2s ease-in-out;
+}
+
+#tools {
+    padding: 40px 30px; /* Padding inside the container */
+    background: #53c3e2; /* Light blue background */
+    text-align: center;
+    margin: 50px auto; /* Center the section with top margin and automatic left-right margins */
+    border-radius: 12px; /* Rounded corners for a softer look */
+    width: 80%; /* Set the width to 80% of the parent container, leaving space on both sides */
+    max-width: 10000px; /* Max width to prevent it from growing too large */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* 3D box shadow effect */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition for shadow and transform */
+    animation: fadeInDown 2s ease-in-out;
+    border: 3px solid #2c8f9b; /* Add a border with a darker shade of blue */
+}
+
+#it {
+    text-transform: uppercase; /* Make all letters capital */
+    color: rgb(22, 21, 21); /* Text color */
+    
+    font-weight: 900; /* Maximum boldness */
+    font-family: 'Arial Black', 'Arial', sans-serif; /* Bolder professional font */
+    font-size: 2.5rem; /* Slightly larger font for extra emphasis */
+    text-align: center; /* Center-align the text */
+    margin: 20px 0; /* Add spacing above and below */
+}
+
+/* Hover effect to simulate a "lifting" effect */
+#tools:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Darker, larger shadow on hover */
+    transform: translateY(-5px); /* Lift effect */
+}
+
+/* Title Styling */
+#tools h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #2980b9; /* Dark blue color for the heading */
+    transition: transform 0.3s ease-in-out, color 0.3s ease; /* Smooth transition for scale and color */
+}
+
+/* Box shadow animation effect when clicked */
+#tools:active h2 {
+    transform: scale(1.05); /* Slight scale increase on click */
+    color: #16a085; /* Change color on click */
+}
+
+/* Optional: Add a smooth fade-in for the entire section */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+#toolbox button {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+#toolbox button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #c0392b, #e74c3c);
+}
+
+#forecastResults {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: rgb(26, 24, 24); /* Text color */
+    padding: 20px;
+    border: 1px solid #333; /* Darker border for contrast */
+    border-radius: 15px; /* Rounded corners */
+    background-color: rgb(14, 1, 1); /* Background color */
+    display: inline-block;
+    width: auto;
+    animation: fadeIn 1.5s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(255, 255, 255, 0.3); /* 3D shadow effect */
+    text-shadow: 2px 2px 5px rgba(185, 171, 171, 0.6); /* 3D effect for text */
+}
+
+/* Placeholder text when no results are available */
+#forecastResults:empty::before {
+    content: "Your result will be displayed here";
+    color: rgba(12, 0, 0, 0.7); /* Slightly lighter text */
+    font-style: italic;
+}
+
+
+/* Contact Section */
+#contact {
+    padding: 50px 20px;
+    background: linear-gradient(45deg, #1abc9c, #2ecc71);
+    color: white;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#contactForm {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+#contactForm label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+#contactForm input,
+#contactForm textarea,
+#contactForm button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+#contactForm input,
+#contactForm textarea {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+}
+
+#contactForm button {
+    background: linear-gradient(45deg, #16a085, #1abc9c);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+#contactForm button:hover {
+    transform: scale(1.05);
+}
+
+/* Footer Section */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #34495e;
+    color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+#SALES {
+    /* Base Styling */
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background: none; /* Remove gradient background */
+    
+    margin: 20px auto;
+    position: relative;
+    padding: 20px 0;
+    width: fit-content;
+
+    /* Black border with rounded corners */
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 10px 20px;
+
+    
+   
+}
+
+/* Glow Animation */
+@keyframes glowPulseWhite {
+    0%, 100% {
+        text-shadow: 0 0 10px white, 0 0 15px white;
+    }
+    50% {
+        text-shadow: 0 0 20px white, 0 0 30px white;
+    }
+}
+
+/* Pseudo-elements for data representation */
+#SALES::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 10px;
+    background: black; /* Black data bar */
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    animation: dataBarWhite 3s ease-in-out infinite;
+}
+
+/* Animation for the data bar */
+@keyframes dataBarWhite {
+    0%, 100% {
+        width: 50%;
+        opacity: 0.8;
+    }
+    50% {
+        width: 90%;
+        opacity: 1;
+    }
+}
+
+#SALES::after {
+    content: 'Tracking Sales Performance';
+    display: block;
+    margin-top: 15px;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: black; /* Subtitle in black */
+    text-shadow: none;
+}
+
+/* Hover Effect */
+#SALES:hover {
+    color: black; /* Switch text to black on hover */
+    background: none;
+    text-shadow: none;
+    background-color: white; /* White background for contrast */
+    border: 3px solid white; /* White border */
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+#SALES:hover::before {
+    background: grey; /* Change the data bar to grey on hover */
+}
+
+/*Forecast Results */
+#forecastResults {
+    background-color: #f4f4f9; /* Light background for readability */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding for spacing */
+    margin-top: 20px; /* Space between buttons and results */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    max-width: 600px; /* Limit the width of the forecast container */
+    margin-left: auto;
+    margin-right: auto; /* Center the results container */
+    font-family: 'Arial', sans-serif; /* Clean, modern font */
+    color: #333; /* Dark text for readability */
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+#forecastResults p {
+    font-size: 18px; /* Larger font size for better readability */
+    margin-bottom: 15px; /* Space between paragraphs */
+    color: #333; /* Dark text color */
+}
+
+#forecastResults ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding-left: 0; /* Remove padding */
+}
+
+#forecastResults li {
+    font-size: 16px; /* Slightly smaller text for the list items */
+    background-color: #fff; /* White background for the list items */
+    border: 1px solid #ddd; /* Light grey border for list items */
+    margin-bottom: 10px; /* Space between list items */
+    padding: 10px; /* Padding inside list items */
+    border-radius: 4px; /* Rounded corners for list items */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+#forecastResults li:hover {
+    background-color: #e8e8e8; /* Light grey hover effect */
+}
+
+#forecastResults .loading {
+    text-align: center;
+    font-size: 18px;
+    font-style: italic;
+    color: #888; /* Light grey text for loading message */
+}
+
+
+
+
+
+/* 3D Effect for stockPredictionGraph */
+#stockPredictionGraph {
+    width: 70%; /* Shortened the width */
+    min-height: 430px;
+    background-color: #333; /* Darker background for canvas */
+    border-radius: 12px; /* Rounded corners for a softer look */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Default shadow for 3D effect */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition for hover */
+    margin: 20px auto; /* Center the graph horizontally with top and bottom margin */
+    position: relative;
+}
+
+/* Hover effect to create a "lift" effect */
+#stockPredictionGraph:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Darker, larger shadow on hover */
+    transform: translateY(-8px); /* Lift effect */
+}
+
+/* Optional: Add an inset shadow to give the illusion of depth within the element */
+#stockPredictionGraph::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    right: 10px;
+    bottom: 10px;
+    background: rgba(0, 0, 0, 0.1); /* Light inner shadow */
+    border-radius: 12px;
+    z-index: 1;
+}
+
+/* 3D Effect for STOCK text */
+#STOCK {
+    font-weight: bold; /* Bold text */
+    color: #ffffff; /* White text color */
+    text-align: center; /* Center-align text */
+    font-size: 24px; /* Adjust text size */
+    margin: 0; /* Remove margin for perfect centering */
+    position: absolute; /* Absolute positioning to place it in the center of the screen */
+    top: 50%; /* Vertical center */
+    left: 50%; /* Horizontal center */
+    transform: translate(-50%, -50%); /* Adjust to truly center it */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for text to add depth */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+
+/* Hover effect for STOCK text */
+#STOCK:hover {
+    color: #c0392b; /* Slightly darker red on hover */
+    transform: scale(1.05); /* Slight scale increase for interaction */
+}

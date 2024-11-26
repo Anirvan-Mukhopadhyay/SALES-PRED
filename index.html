@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SalesVision AI</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <h1 id="SALES">SalesVision AI</h1>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#tech">Technology</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#prediction">Stock Prediction</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h2>Transform Your Sales Strategy</h2>
+        <p>Predict profits, losses, and trends with cutting-edge AI and machine learning models.</p>
+        <button onclick="scrollToSection('#features')">Explore Features</button>
+    </section>
+    <br><br>
+    <section id="features">
+        <h2>Core Features</h2>
+        <div class="feature">
+            <h3>Smart Sales Forecasting</h3>
+            <p>Advanced tools like SARIMAX, ARIMA, and Prophet provide precise predictions of profits and seasonal trends.</p>
+        </div>
+        <div class="feature">
+            <h3>Advanced Insights</h3>
+            <p>Analyze seasonal trends, rate of returns, and customer purchasing patterns for optimized sales strategies.</p>
+        </div>
+        <div class="feature">
+            <h3>Market-Integrated Predictions</h3>
+            <p>Includes optional market trends to enhance sales forecasting for e-commerce and retail businesses.</p>
+        </div>
+    </section>
+    <br><br>
+    <section id="tech">
+        <h2>AI Technology</h2>
+        <p>Utilizing state-of-the-art AI models:</p>
+        <ul>
+            <li><strong>SARIMAX</strong> - Seasonal Autoregressive Integrated Moving Average with eXogenous factors.</li>
+            <li><strong>ARIMA</strong> - Traditional time series forecasting for trends and patterns.</li>
+            <li><strong>Prophet</strong> - Flexible and intuitive model for seasonal and growth forecasting.</li>
+            <li><strong>Gradient Optimizers</strong> - Ensuring fast and accurate predictions.</li>
+        </ul>
+    </section>
+    <br><br>
+    <section id="prediction">
+        <h1 id="STOCK">Stock Prediction Graph</h1>
+        <div class="graph-container">
+            <canvas id="stockPredictionGraph"></canvas>
+        </div>
+    </section>
+
+    <br><br>
+
+    <section id="tools">
+        <h1 id="it">Interactive Tools</h2>
+        <!-- Toolbox with buttons for different models -->
+        <div id="toolbox">
+            <button onclick="updateForecast('SARIMAX')">Run SARIMAX</button>
+            <button onclick="updateForecast('ARIMA')">Run ARIMA</button>
+            <button onclick="updateForecast('Prophet')">Run Prophet</button>
+        </div>
+        
+        <!-- Placeholder for showing forecast results -->
+        <div id="forecastResults"></div>
+        
+    </section>
+    
+    
+    <!-- The canvas for the chart -->
+    <br><br>
+    
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 SalesVision AI. All rights reserved.</p>
+    </footer>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom Script for Graph -->
+    <script src="index.js"></script>
+</body>
+</html>
